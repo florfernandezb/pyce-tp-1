@@ -44,7 +44,8 @@ class Product extends Model
         return [
             'name' => ['required', 'min:2'],
             'price' => 'required|numeric',
-            'product_description' => 'required'
+            'product_description' => 'required',
+            'id' => 'required|numeric|exists:categories',
         ];
     }
 
@@ -55,6 +56,9 @@ class Product extends Model
             'price.required' => 'Tenés que ingresar el precio del producto',
             'price.numeric' => 'El precio tiene que ser un número',
             'product_description.required' => 'Tenés que escribir la fecha de estreno de la película',
+            'category_id.required' => 'Tenés que elegir la categoría del producto',
+            'category_id.numeric' => 'La categoría debe ser un número entero',
+            'category_id.exists' => 'La categoría provista no existe en la base de datos',
         ];
     }
 
