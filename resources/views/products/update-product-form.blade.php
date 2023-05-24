@@ -9,7 +9,7 @@
     <h2>Form</h2>
     <form action="{{ route('processUpdate', ['id' => $product->id]) }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <x-product-form :product="$product" action="Guardar"/>
+        <x-product-form :product="$product" action="Guardar" :categories="$categories"/>
     </form>
 </div>
 @endsection

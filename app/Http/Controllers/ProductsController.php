@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -10,13 +11,13 @@ use Illuminate\Support\Facades\Storage;
 class ProductsController extends Controller
 {
     public function productsList() {
-        $products = Product::all();
+        $products = Product::with(['category'])->get();
         return view('products\products-list', ['products' => $products]);
         
     }
 
     public function newProductForm() {
-        return view('products.new-product-form');
+        return view('products.new-product-form', ['categories' => Category::all()]);
     }
 
     public function processCreateProduct(Request $request) {
@@ -40,7 +41,7 @@ class ProductsController extends Controller
 
     public function updateProductForm(int $id) {
 
-        return view('products.update-product-form', ['product' => Product::findOrFail($id)]);
+        return view('products.update-product-form', ['product' => Product::findOrFail($id), 'categories' => Category::all()]);
     }
 
     public function processUpdate(int $id, Request $request) {

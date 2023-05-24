@@ -13,7 +13,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property string $name
  * @property int $price
- 
  * @property string $product_description
  * @property string|null $image
  * @property string|null $image_description
@@ -34,6 +33,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $category_id
  * @property-read \App\Models\Category $category_id
  * @method static \Illuminate\Database\Eloquent\Builder|Movie whereCategoryId($value)
+ * @property-read \App\Models\Category $category
  * @mixin \Eloquent
  */
 class Product extends Model

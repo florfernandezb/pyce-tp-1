@@ -14,22 +14,34 @@ class CategorySeeder extends Seeder
     {
         \DB::table('categories')->insert([
             [
-                'name' => 'bowls'
+                'name' => 'bowls',
+                "created_at" => now(),
+                "updated_at" => now(),
             ],
             [
-                'name' => 'tazas'
+                'name' => 'tazas',
+                "created_at" => now(),
+                "updated_at" => now(),
             ],
             [
-                'name' => 'fuentes'
+                'name' => 'fuentes',
+                "created_at" => now(),
+                "updated_at" => now(),
             ],
             [
-                'name' => 'mates'
+                'name' => 'mates',
+                "created_at" => now(),
+                "updated_at" => now(),
             ],
             [
-                'name' => 'platos'
+                'name' => 'platos',
+                "created_at" => now(),
+                "updated_at" => now(),
             ],
             [
-                'name' => 'macetas'
+                'name' => 'macetas',
+                "created_at" => now(),
+                "updated_at" => now(),  
             ]
         ]);
     }
