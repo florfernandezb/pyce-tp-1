@@ -30,7 +30,7 @@
         <nav id="nav" class="col-6 navbar">    
             <ul id="menu">
                 <li ><a  href="{{ url('/') }}">Nosotros</a></li>
-                <li ><a  href="{{ url('/blog') }}">Blog</a></li>
+                <!-- <li ><a  href="{{ url('/blog') }}">Blog</a></li> -->
                 <li ><a  href="{{ route('productsList') }}">Productos</a></li>
                 @auth    
                     <li >
