@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property string $name
  * @property int $price
- * @property string $category
+ 
  * @property string $product_description
  * @property string|null $image
  * @property string|null $image_description
@@ -30,11 +31,14 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Product wherePrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereProductDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereUpdatedAt($value)
+ * @property int $category_id
+ * @property-read \App\Models\Category $category_id
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie whereCategoryId($value)
  * @mixin \Eloquent
  */
 class Product extends Model
 {
-    protected $fillable = [ 'id', 'name', 'price', 'category', 'product_description', 'image', 'image_description'];    
+    protected $fillable = [ 'category_id', 'id', 'name', 'price', 'product_description', 'image', 'image_description'];    
    
     public static function validationRules(): array {
         return [
@@ -59,6 +63,10 @@ class Product extends Model
             get: fn (int $value): float  => $value / 100,
             set: fn (float $value)       => $value * 100,
         );
-    }   
+    }
+
+    public function category(): BelongsTo {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
 }
 

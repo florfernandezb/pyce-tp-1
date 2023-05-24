@@ -27,7 +27,7 @@
                 <tr>
                     <td> {{ $product->name }} </td> 
                     <td> ${{ $product->price }} </td> 
-                    <td> {{ $product->category }} </td> 
+                    <td> {{ $product->category->name }} </td> 
                     <td> {{ $product->product_description }} </td> 
                     <!-- @if($product->image != null && Storage::has('imgs/' . $product->image))
                         <td> <img class="mw-100 mh-100" src="{{ Storage::url('imgs/' . $product->image) }}" alt="{{ $product->imageDescription }}" > </td> 
